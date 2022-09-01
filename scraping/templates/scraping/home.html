@@ -1,0 +1,22 @@
+<div  style="padding:  15px 10px;  margin:0px 0px 10px 0px;  background: #99CCFF;"><h1>ラクマスクレピングアプリ</h1></div>
+
+<p>商品名を入力してください。</p>
+<form action="{% url 'home' %}" method="POST">
+    <input type="text" name="title">
+    {% csrf_token %}
+    <button type="submit">送信</button>
+</form>
+
+<div align="center">
+    <table>
+        <tr>
+            <th>価格の記述統計量</th><th>価格の分布</th>
+        </tr>
+        <tr>
+            <td> {{numbers | safe}} </td>
+            <td> <img src="data:image/png;base64, {{ graph | safe }} " alt=""> </td>
+        </tr>
+    </table>
+</div>
+
+
